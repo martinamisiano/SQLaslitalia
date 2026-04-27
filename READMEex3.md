@@ -44,7 +44,9 @@ spesa_branca_11
 spesa_branca_26
 spesa_totale_comune
 eta_media_ponderata
-Filtering:
+Filtering: 
+HAVING spesa_totale_comune > 100
+-removes low-signal municipalities 
 
 
 Each municipality is compared to all others:
@@ -59,7 +61,7 @@ SQRT(
     POWER((spesa_branca_6_diff / max_spesa), 2) +
     POWER((spesa_branca_11_diff / max_spesa), 2)
 )
-
+ensures comparability across municipalities with different scales 
 
 ## Output Schema
 Column	| Type	| Description
