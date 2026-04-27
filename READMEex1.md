@@ -42,6 +42,7 @@ eta_media_ponderata → weighted average age
 Weighted average formula:
 SUM(classe età * numero prestazione) / SUM(numero prestazione)
 
+normalization layer (asl_percentili) 
 Uses window functions:
 PERCENT_RANK() OVER (ORDER BY spesa_totale)
 PERCENT_RANK() OVER (ORDER BY costo_medio)
@@ -49,6 +50,7 @@ Purpose:
 Remove scale bias
 Enable cross-ASL comparability
 
+cluster logic (pairwise join) 
 Each ASL is compared against all others:
 JOIN asl_percentili a2 
 ON a1.`ASL assistito` < a2.`ASL assistito`
